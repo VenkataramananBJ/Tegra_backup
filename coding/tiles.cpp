@@ -6,22 +6,41 @@ double median (cv::Mat channel);
 
 int main()
 {
-	cv::Mat img = cv::imread("lion.jpg");
-
+	//cv::Mat img = cv::imread("lion.jpg");
+	cv::Mat img;	
+	cv::VideoCapture input("../../OpenCV-tutorials/build/Images/cars.mp4");
+	int image_count = 1;
+	for(;;){
+		if(!input.read(img))
+			break;
 	cv::cvtColor(img,img, cv::COLOR_BGR2GRAY);
 
 	double minc[1],maxc[1],med;
 
-	cv::minMaxLoc (img, minc, maxc);
+	int tile_width = img.cols/10;
+	int tile_height = img.rows/5;
 
-	cv::Scalar m = mean(img);
+	std::cout<<"width: "<<tile_width<<"\n";
+	std::cout<<"height: "<<tile_height<<"\n";
+	int tile_count=1;
+	for(int i=0; i<img.rows;i+=tile_height){
+		for (int j=0;j<img.cols;j+=tile_width){
+
+	cv::Rect rect(j,i,tile_width,tile_height);
+	cv::Mat roi = img(rect);
+
+
+	cv::minMaxLoc (roi,minc, maxc);
+
+	cv::Scalar m = mean(roi);
 
 	cv::Scalar mean, stddev;
 
-	cv::meanStdDev(img,mean,stddev);
+	cv::meanStdDev(roi,mean,stddev);
 	
-	med = median(img);
-
+	med = median(roi);
+	
+	std::cout<<"Stats of Tile number: "<<tile_count<<"\n";
 	std::cout<<mean[0]<<"\n";
 	std::cout<<stddev[0]<<"\n";
 	std::cout<<m[0]<<"\n";
@@ -29,9 +48,18 @@ int main()
 	std::cout<<maxc[0]<<"\n";
 	std::cout<<med<<"\n";
 
-	cv::imshow("img", img);
+	tile_count++;
+	cv::imshow("img", roi);
 
-	cv::waitKey();
+	cv::waitKey(30);
+		}
+	}
+	std::cout<<"Image Count: "<<image_count<<"\n";
+	image_count++;
+	char c = cv::waitKey(30);
+	if (c==27)
+		break;
+	}
 
 	return 0;
 }
