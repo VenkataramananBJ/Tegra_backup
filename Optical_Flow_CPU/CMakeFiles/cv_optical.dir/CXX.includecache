@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nvidia/Venkat/Optical_Flow_CPU/optical_flow_cpu.cpp
+opencv2/video/tracking.hpp
+/home/nvidia/Venkat/Optical_Flow_CPU/opencv2/video/tracking.hpp
+opencv2/imgproc.hpp
+/home/nvidia/Venkat/Optical_Flow_CPU/opencv2/imgproc.hpp
+opencv2/videoio.hpp
+/home/nvidia/Venkat/Optical_Flow_CPU/opencv2/videoio.hpp
+opencv2/highgui.hpp
+/home/nvidia/Venkat/Optical_Flow_CPU/opencv2/highgui.hpp
+iostream
+-
+ctype.h
+-
+

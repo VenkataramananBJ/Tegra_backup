@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 2.8)
+
+
+project(OPTICAL_FLOW)
+
+find_package(OpenCV REQUIRED)
+
+include_directories(${OpenCV_INCLUDE_DIRS})
+LINK_DIRECTORIES(${OpenCV_LIB_DIR})
+
+set(WITH_CUDA ON)
+
+#ADD_DEFINITIONS(-DHAVE_CUDA=1)
+add_executable(cv_optical_cuda  optical_flow_cuda.cpp)
+
+target_link_libraries(cv_optical_cuda ${OpenCV_LIBS} ${OpenCV_LIB_DIR})

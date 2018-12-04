@@ -1,0 +1,3 @@
+/home/nvidia/Venkat/tryouts/build/CMakeFiles/rebuild_cache.dir
+/home/nvidia/Venkat/tryouts/build/CMakeFiles/cv_cuda.dir
+/home/nvidia/Venkat/tryouts/build/CMakeFiles/edit_cache.dir

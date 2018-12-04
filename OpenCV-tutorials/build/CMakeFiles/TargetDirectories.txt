@@ -1,0 +1,3 @@
+/home/nvidia/Venkat/OpenCV-tutorials/build/CMakeFiles/rebuild_cache.dir
+/home/nvidia/Venkat/OpenCV-tutorials/build/CMakeFiles/cv_flow.dir
+/home/nvidia/Venkat/OpenCV-tutorials/build/CMakeFiles/edit_cache.dir

@@ -1,0 +1,39 @@
+cmake_minimum_required(VERSION 2.8)
+
+set(OPENCV_CUDA_SAMPLES_REQUIRED_DEPS
+  opencv_core
+  opencv_flann
+  opencv_imgproc
+  opencv_imgcodecs
+  opencv_videoio
+  opencv_highgui
+  opencv_ml
+  opencv_video
+  opencv_objdetect
+  opencv_features2d
+  opencv_calib3d
+  opencv_superres
+  opencv_cudaarithm
+  opencv_cudafilters
+  opencv_cudawarping
+  opencv_cudaimgproc
+  opencv_cudafeatures2d
+  opencv_cudaoptflow
+  opencv_cudabgsegm
+  opencv_cudastereo
+  opencv_cudaobjdetect)
+
+
+
+
+project(OPTICAL_FLOW)
+
+add_definitions(-DHAVE_CUDA=1)
+
+include_directories(${CUDA_INCLUDE_DIRS},${OpenCV_INCLUDE_DIRS})
+
+  
+add_executable(optical_flow optical_flow_cuda.cpp)
+  
+target_link_libraries( optical_flow ${OPENCV_LIBS} ${OPENCV_CUDA_SAMPLES_REQUIRED_DEPS})
+
